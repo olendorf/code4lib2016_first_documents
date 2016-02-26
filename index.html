@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Code4lib2016 first documents by olendorf</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Code4lib2016 first documents</h1>
+        <h2>An explanation of the Cars example in the workshop.</h2>
+        <a href="https://github.com/olendorf/code4lib2016_first_documents" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <hr>
+
+<p>title: "Our First Documents"
+author: "Robert Olendorf"
+date: "February 18, 2016"</p>
+
+<h2>
+<a id="output-html_document" class="anchor" href="#output-html_document" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>output: html_document</h2>
+
+<h2>
+<a id="simple-markdown" class="anchor" href="#simple-markdown" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simple Markdown</h2>
+
+<p>R Studio makes getting started with Knitr easy. Lets start a  new project. In the <strong>[File]</strong> menu choose <strong>[New Project]</strong>, <strong>[New Directory]</strong>, <strong>[Empty Project]</strong> and call it <strong><em>mtcars</em></strong>. Go ahead and make it a git repository too.</p>
+
+<p>For our first document, we'll just play with the default markdown document that R Studio makes for us. Again in the <strong>[File]</strong> menu select <strong>[New File]/R Mardkown</strong>. Call it <strong><em>mtcars</em></strong> as well and choose HTML output. It should have created something like below, although I've added some addional comments.</p>
+
+<div class="highlight highlight-source-r"><pre>
+<span class="pl-smi">This</span> <span class="pl-smi">is</span> <span class="pl-smi">an</span> <span class="pl-smi">R</span> <span class="pl-smi">Markdown</span> <span class="pl-smi">document</span>. <span class="pl-smi">Markdown</span> <span class="pl-smi">is</span> <span class="pl-smi">a</span> <span class="pl-smi">simple</span> <span class="pl-smi">formatting</span> 
+<span class="pl-smi">syntax</span> <span class="pl-k">for</span> <span class="pl-smi">authoring</span> <span class="pl-smi">HTML</span>, <span class="pl-smi">PDF</span>, <span class="pl-smi">and</span> <span class="pl-smi">MS</span> <span class="pl-smi">Word</span> <span class="pl-smi">documents</span>. 
+<span class="pl-smi">For</span> <span class="pl-smi">more</span> <span class="pl-smi">details</span> <span class="pl-smi">on</span> <span class="pl-smi">using</span> <span class="pl-smi">R</span> <span class="pl-smi">Markdown</span> <span class="pl-smi">see</span> <span class="pl-k">&lt;</span><span class="pl-smi">http</span><span class="pl-k">:</span><span class="pl-k">//</span><span class="pl-smi">rmarkdown.rstudio.com</span><span class="pl-k">&gt;</span>.
+
+<span class="pl-smi">When</span> <span class="pl-smi">you</span> <span class="pl-smi">click</span> <span class="pl-smi">the</span> <span class="pl-k">**</span><span class="pl-smi">Knit</span><span class="pl-k">**</span> <span class="pl-smi">button</span> <span class="pl-smi">a</span> <span class="pl-smi">document</span> <span class="pl-smi">will</span> <span class="pl-smi">be</span> <span class="pl-smi">generated</span> <span class="pl-smi">that</span>
+<span class="pl-smi">includes</span> <span class="pl-smi">both</span> <span class="pl-smi">content</span> <span class="pl-smi">as</span> <span class="pl-smi">well</span> <span class="pl-smi">as</span> <span class="pl-smi">the</span> <span class="pl-smi">output</span> <span class="pl-smi">of</span> <span class="pl-smi">any</span> <span class="pl-smi">embedded</span> <span class="pl-smi">R</span> <span class="pl-smi">code</span> 
+<span class="pl-smi">chunks</span> <span class="pl-smi">within</span> <span class="pl-smi">the</span> <span class="pl-smi">document</span>. <span class="pl-smi">You</span> <span class="pl-smi">can</span> <span class="pl-smi">embed</span> <span class="pl-smi">an</span> <span class="pl-smi">R</span> <span class="pl-smi">code</span> <span class="pl-smi">chunk</span> <span class="pl-smi">like</span> <span class="pl-smi">this</span><span class="pl-k">:</span>
+
+
+<span class="pl-c"># Three backticks starts a codeblock in Markdown. In markdown we can typically specify </span>
+<span class="pl-c"># the language to allow syntax highlighting. In Knitr we additonally wrap the language </span>
+<span class="pl-c"># specification in curly braces.</span>
+`` ` ``{<span class="pl-smi">r</span>} <span class="pl-c"># Hard to escape backticks </span>
+summary(<span class="pl-smi">cars</span>)
+`` ` ``
+
+<span class="pl-smi">You</span> <span class="pl-smi">can</span> <span class="pl-smi">also</span> <span class="pl-smi">embed</span> <span class="pl-smi">plots</span>, <span class="pl-k">for</span> <span class="pl-smi">example</span><span class="pl-k">:</span>
+
+<span class="pl-c"># Code blocks in Knitr have options. In this case, we display the results without</span>
+<span class="pl-c"># the code using the echo=FALSE options</span>
+`` ` ``{<span class="pl-smi">r</span>, <span class="pl-smi">cars</span><span class="pl-k">-</span><span class="pl-smi">plot</span>, <span class="pl-v">echo</span><span class="pl-k">=</span><span class="pl-c1">FALSE</span>}
+plot(<span class="pl-smi">cars</span>)
+`` ` ``
+
+
+<span class="pl-smi">Note</span> <span class="pl-smi">that</span> <span class="pl-smi">the</span> `<span class="pl-v">echo</span> <span class="pl-k">=</span> <span class="pl-c1">FALSE</span>` <span class="pl-smi">parameter</span> <span class="pl-smi">was</span> <span class="pl-smi">added</span> <span class="pl-smi">to</span> <span class="pl-smi">the</span> <span class="pl-smi">code</span> <span class="pl-smi">chunk</span> <span class="pl-smi">to</span>
+<span class="pl-smi">prevent</span> <span class="pl-smi">printing</span> <span class="pl-smi">of</span> <span class="pl-smi">the</span> <span class="pl-smi">R</span> <span class="pl-smi">code</span> <span class="pl-smi">that</span> <span class="pl-smi">generated</span> <span class="pl-smi">the</span> <span class="pl-smi">plot</span>.</pre></div>
+
+<p>In Markdown, everything between the triple backticks followed by curly braces ```{r} is called a code chunk. The code chunk ends with a closing triple backtick. A code chunk is essentially the R code that you want to incorporate into your document.</p>
+
+<p>Inside the curly braces, we have a language specification. Knitr actually works with several other languages as well (e.g. C++, Python). In Markdown the langauge specification is required if you want the code to run. Otherwise it will just echo the code. There is also an optional <strong><em>code chunk label</em></strong>. This can be used to reuse code chunks and <em>DRY</em> out your document. You may also add optional <strong><em>code chunk options</em></strong>. These are listed at <a href="http://yihui.name/knitr/options/">http://yihui.name/knitr/options/</a>. We've already used one (echo = False), to supress display of the code.</p>
+
+<p>Now click the <strong>[Knit HTML]</strong> Button at the top of the <strong><em>mtcars.Rmd</em></strong> script and it will create the .html file and open it up in a preview panel. Just because you chose HTML when you set it up doesn't mean you are stuck either. You can also choose more by using the down caret on the side of the button. Go ahead and make PDF and Word documents if you like.</p>
+
+<h2>
+<a id="simple-latex" class="anchor" href="#simple-latex" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simple LaTeX</h2>
+
+<p>Now lets do the same thing, but with LaTeX. We won't spend a lot of time on LaTeX. Its great for situations where you need more typesetting like control over your documents. Such as when writing articles for publications, books and the like. Its also a fairly tricky and difficult thing to learn compared to Markdown. This will just give us a taste.</p>
+
+<p>Unfortunately, we don't get the nice example document that comes with Markdown document, so we'll just copy the content into a LaTeX format. I'll have these examples on Github too. First create a new file, this time choose <strong>[Text File]</strong>. <strong>[Save As...]</strong> <strong><em>mtcars.Rnw</em></strong>. The <em>.Rnw</em> extension means <em>R now web</em>. Saving first turns on code highlighting. Add the following code.</p>
+
+<div class="highlight highlight-text-tex"><pre><span class="pl-c1">\documentclass</span>{article}
+
+<span class="pl-c1">\usepackage</span>{graphicx}
+<span class="pl-c1">\usepackage</span>{wrapfig}
+<span class="pl-c1">\usepackage</span>[utf8]{inputenc}
+<span class="pl-c1">\usepackage</span>[english]{babel}
+
+<span class="pl-c1">\setlength</span>{<span class="pl-c1">\parindent</span>}{2em}
+<span class="pl-c1">\setlength</span>{<span class="pl-c1">\parskip</span>}{1em}
+
+<span class="pl-c1">\graphicspath</span>{ {images/} }
+
+
+<span class="pl-c1">\title</span>{Quick Tour of R and R Studio}
+<span class="pl-c1">\date</span>{February 12, 2106}
+<span class="pl-c1">\author</span>{Robert Olendorf}
+
+<span class="pl-c1">\begin</span>{document}
+  <span class="pl-c1">\maketitle</span>
+  <span class="pl-c1">\pagenumbering</span>{gobble}
+  <span class="pl-c1">\newpage</span>
+
+  This is an R LaTeX document. LaTeX is a powerful typesetting syntax for authoring PDF documents. For more details on using R Markdown see &lt;https://www.latex-project.org/&gt;.
+
+  When you click the <span class="pl-c1">\textbf</span>{Compile PDF} button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+  &lt;&lt;summary&gt;&gt;=
+  summary(cars)
+  @
+
+
+You can also embed plots, for example:
+
+  &lt;&lt;plot, echo=FALSE&gt;&gt;=
+  plot(cars)
+  @
+
+
+  Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+<span class="pl-c1">\end</span>{document}</pre></div>
+
+<p>Thats pretty much how LaTeX works. The big difference in terms of Knitr is how the code chunks are dilimited. In LaTeX we use <code>&lt;&lt;label, options&gt;&gt;=</code> to start the code chunk and <code>@</code> to end the code chunk. <strong>NOTE:</strong> If you want to use other languages in LaTeX there is an <code>engine=python</code> option. You can visit <a href="http://yihui.name/knitr/demo/engines/">http://yihui.name/knitr/demo/engines/</a> for more information.</p>
+
+<p>Click the <strong>[Comple PDF]</strong> button and you will get a nicely formatted PDF document.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/olendorf/code4lib2016_first_documents/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/olendorf/code4lib2016_first_documents/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/olendorf/code4lib2016_first_documents"></a> is maintained by <a href="https://github.com/olendorf">olendorf</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
