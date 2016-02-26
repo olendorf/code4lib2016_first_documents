@@ -1,0 +1,104 @@
+---
+title: "Our First Documents"
+author: "Robert Olendorf"
+date: "February 18, 2016"
+output: html_document
+---
+
+## Simple Markdown
+
+R Studio makes getting started with Knitr easy. Lets start a  new project. In the **[File]** menu choose **[New Project]**, **[New Directory]**, **[Empty Project]** and call it **_mtcars_**. Go ahead and make it a git repository too.
+
+For our first document, we'll just play with the default markdown document that R Studio makes for us. Again in the **[File]** menu select **[New File]/R Mardkown**. Call it **_mtcars_** as well and choose HTML output. It should have created something like below, although I've added some addional comments.
+
+```r
+
+This is an R Markdown document. Markdown is a simple formatting 
+syntax for authoring HTML, PDF, and MS Word documents. 
+For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that
+includes both content as well as the output of any embedded R code 
+chunks within the document. You can embed an R code chunk like this:
+
+
+# Three backticks starts a codeblock in Markdown. In markdown we can typically specify 
+# the language to allow syntax highlighting. In Knitr we additonally wrap the language 
+# specification in curly braces.
+`` ` ``{r} # Hard to escape backticks 
+summary(cars)
+`` ` ``
+
+You can also embed plots, for example:
+
+# Code blocks in Knitr have options. In this case, we display the results without
+# the code using the echo=FALSE options
+`` ` ``{r, cars-plot, echo=FALSE}
+plot(cars)
+`` ` ``
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to
+prevent printing of the R code that generated the plot.
+```
+
+In Markdown, everything between the triple backticks followed by curly braces ```{r} is called a code chunk. The code chunk ends with a closing triple backtick. A code chunk is essentially the R code that you want to incorporate into your document.
+
+Inside the curly braces, we have a language specification. Knitr actually works with several other languages as well (e.g. C++, Python). In Markdown the langauge specification is required if you want the code to run. Otherwise it will just echo the code. There is also an optional **_code chunk label_**. This can be used to reuse code chunks and *DRY* out your document. You may also add optional **_code chunk options_**. These are listed at http://yihui.name/knitr/options/. We've already used one (echo = False), to supress display of the code.
+
+Now click the **[Knit HTML]** Button at the top of the **_mtcars.Rmd_** script and it will create the .html file and open it up in a preview panel. Just because you chose HTML when you set it up doesn't mean you are stuck either. You can also choose more by using the down caret on the side of the button. Go ahead and make PDF and Word documents if you like.
+
+## Simple LaTeX
+
+Now lets do the same thing, but with LaTeX. We won't spend a lot of time on LaTeX. Its great for situations where you need more typesetting like control over your documents. Such as when writing articles for publications, books and the like. Its also a fairly tricky and difficult thing to learn compared to Markdown. This will just give us a taste.
+
+Unfortunately, we don't get the nice example document that comes with Markdown document, so we'll just copy the content into a LaTeX format. I'll have these examples on Github too. First create a new file, this time choose **[Text File]**. **[Save As...]** **_mtcars.Rnw_**. The *.Rnw* extension means *R now web*. Saving first turns on code highlighting. Add the following code.
+
+```latex
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+ 
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+
+\graphicspath{ {images/} }
+
+
+\title{Quick Tour of R and R Studio}
+\date{February 12, 2106}
+\author{Robert Olendorf}
+
+\begin{document}
+  \maketitle
+  \pagenumbering{gobble}
+  \newpage
+  
+  This is an R LaTeX document. LaTeX is a powerful typesetting syntax for authoring PDF documents. For more details on using R Markdown see <https://www.latex-project.org/>.
+  
+  When you click the \textbf{Compile PDF} button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+  
+  <<summary>>=
+  summary(cars)
+  @
+  
+  
+You can also embed plots, for example:
+
+  <<plot, echo=FALSE>>=
+  plot(cars)
+  @
+  
+    
+  Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+\end{document}
+```
+Thats pretty much how LaTeX works. The big difference in terms of Knitr is how the code chunks are dilimited. In LaTeX we use ```<<label, options>>=``` to start the code chunk and ```@``` to end the code chunk. **NOTE:** If you want to use other languages in LaTeX there is an ```engine=python``` option. You can visit http://yihui.name/knitr/demo/engines/ for more information.
+
+Click the **[Comple PDF]** button and you will get a nicely formatted PDF document.
+
+
+
